@@ -47,6 +47,45 @@ pnpm start
 
 This will start the server and make it available for MCP clients.
 
+## Configuration
+
+To configure your LLM agent to use this MCP server, you need to add a new entry to the `mcpServers` object in your agent's settings file.
+
+For example, you can add one of the following configurations.
+
+With `npx`:
+```json
+"example-npx": {
+  "command": "npx",
+  "args": ["github:harnyk/mcp-template"]
+}
+```
+
+Alternatively, with `pnpm dlx`:
+```json
+"example-pnpm": {
+  "command": "pnpm",
+  "args": ["dlx", "github:harnyk/mcp-template#master", "mcp-server"]
+}
+```
+
+This configuration will create a new MCP server that uses `npx` (or `pnpm dlx`) to run the `mcp-template` from the `harnyk` GitHub repository.
+
+Here is an example of how the `mcpServers` object might look with the new configuration:
+
+```json
+"mcpServers": {
+  "example-npx": {
+    "command": "npx",
+    "args": ["github:harnyk/mcp-template"]
+  },
+  "example-pnpm": {
+    "command": "pnpm",
+    "args": ["dlx", "github:harnyk/mcp-template#master", "mcp-server"]
+  }
+}
+```
+
 ## Creating Your Own Tools and Prompts
 
 ### Tools
